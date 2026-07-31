@@ -8,7 +8,8 @@ const WORLD_ID = "maplewood";
 const CYCLE_MS = 20_000;
 
 function getDb() {
-  const url = process.env.DATABASE_URL;
+  const url =
+  process.env.DATABASE_URL ?? process.env.DATABASE_POSTGRES_URL;
   if (!url) throw new Error("DATABASE_URL is not configured. Add it in your hosting environment.");
   return neon(url);
 }
